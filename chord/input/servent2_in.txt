@@ -1,0 +1,5 @@
+pause 30000
+pause 10000
+pull /test.txt 0
+pause 10000
+stop

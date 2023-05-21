@@ -1,0 +1,22 @@
+17:31:19 - Starting servent [cId: 37|ipA: localhost|lP: 1304]
+17:31:19 - Pausing for 30000 ms
+17:31:19 - Sending message [cHashSp:37|sPort:localhost:1304|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1104|cHashRp:38]
+17:31:21 - Got message [cHashSp:38|sPort:localhost:1104|mId:5|mTxt:|mTyp:WELCOME|rPort:localhost:1304|cHashRp:37]
+17:31:22 - Sending message [cHashSp:37|sPort:localhost:1304|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
+17:31:24 - Got message [cHashSp:37|sPort:localhost:1304|mId:6|mTxt:localhost:1104,localhost:1204|mTyp:UPDATE|rPort:localhost:1304|cHashRp:37]
+17:31:25 - Sending message [cHashSp:37|sPort:localhost:1304|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1104|cHashRp:38]
+17:31:27 - Got message [cHashSp:22|sPort:localhost:1204|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1304|cHashRp:37]
+17:31:28 - Sending message [cHashSp:37|sPort:localhost:1304|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
+17:31:33 - Got message [cHashSp:18|sPort:localhost:1404|mId:9|mTxt:localhost:1204|mTyp:UPDATE|rPort:localhost:1304|cHashRp:37]
+17:31:34 - Sending message [cHashSp:18|sPort:localhost:1404|mId:4|mTxt:localhost:1204,localhost:1304|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
+17:31:38 - Got message [cHashSp:22|sPort:localhost:1204|mId:10|mTxt:|mTyp:TOKEN|rPort:localhost:1304|cHashRp:37]
+17:31:39 - Sending message [cHashSp:37|sPort:localhost:1304|mId:5|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
+17:31:40 - Got message [cHashSp:15|sPort:localhost:1604|mId:11|mTxt:|mTyp:NEW_NODE|rPort:localhost:1304|cHashRp:37]
+17:31:41 - Sending message [cHashSp:15|sPort:localhost:1604|mId:6|mTxt:|mTyp:NEW_NODE|rPort:localhost:1104|cHashRp:38]
+17:31:43 - Got message [cHashSp:22|sPort:localhost:1204|mId:12|mTxt:|mTyp:TOKEN|rPort:localhost:1304|cHashRp:37]
+17:31:43 - Sending message [cHashSp:37|sPort:localhost:1304|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
+17:31:49 - Pausing for 10000 ms
+17:31:50 - Got message [cHashSp:15|sPort:localhost:1604|mId:13|mTxt:localhost:1404,localhost:1204|mTyp:UPDATE|rPort:localhost:1304|cHashRp:37]
+17:31:51 - Sending message [cHashSp:15|sPort:localhost:1604|mId:8|mTxt:localhost:1404,localhost:1204,localhost:1304|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
+17:31:59 - Pausing for 10000 ms
+17:32:09 - Stopping...

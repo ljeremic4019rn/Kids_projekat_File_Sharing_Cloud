@@ -1,0 +1,7 @@
+package servent.base_message;
+
+public enum MessageType {
+	NEW_NODE, WELCOME, SORRY, UPDATE, POISON, TOKEN,
+	JOINED, QUIT, QUIT_PREDECESSOR, QUIT_OK, QUIT_UPDATE,
+	ADD, ADD_SUCCESS, ASK_PULL, TELL_PULL, REMOVE,
+}
