@@ -1,34 +1,59 @@
-17:30:58 - Starting servent [cId: 38|ipA: localhost|lP: 1104]
-17:30:59 - Pausing for 50000 ms
-17:30:59 - First node in Chord system.
-17:31:09 - Got message [cHashSp:22|sPort:localhost:1204|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1104|cHashRp:38]
-17:31:10 - Sending message [cHashSp:38|sPort:localhost:1104|mId:0|mTxt:|mTyp:WELCOME|rPort:localhost:1204|cHashRp:22]
-17:31:11 - Got message [cHashSp:22|sPort:localhost:1204|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
-17:31:12 - Sending message [cHashSp:22|sPort:localhost:1204|mId:1|mTxt:localhost:1104|mTyp:UPDATE|rPort:localhost:1204|cHashRp:22]
-17:31:13 - Got message [cHashSp:22|sPort:localhost:1204|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1104|cHashRp:38]
-17:31:14 - Sending message [cHashSp:38|sPort:localhost:1104|mId:2|mTxt:|mTyp:TOKEN|rPort:localhost:1204|cHashRp:22]
-17:31:15 - Got message [cHashSp:22|sPort:localhost:1204|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
-17:31:16 - Sending message [cHashSp:38|sPort:localhost:1104|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1204|cHashRp:22]
-17:31:17 - Got message [cHashSp:22|sPort:localhost:1204|mId:4|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
-17:31:18 - Sending message [cHashSp:38|sPort:localhost:1104|mId:4|mTxt:|mTyp:TOKEN|rPort:localhost:1204|cHashRp:22]
-17:31:19 - Got message [cHashSp:37|sPort:localhost:1304|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1104|cHashRp:38]
-17:31:20 - Got message [cHashSp:22|sPort:localhost:1204|mId:5|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
-17:31:21 - Sending message [cHashSp:38|sPort:localhost:1104|mId:5|mTxt:|mTyp:WELCOME|rPort:localhost:1304|cHashRp:37]
-17:31:22 - Got message [cHashSp:37|sPort:localhost:1304|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
-17:31:23 - Sending message [cHashSp:37|sPort:localhost:1304|mId:6|mTxt:localhost:1104|mTyp:UPDATE|rPort:localhost:1204|cHashRp:22]
-17:31:25 - Got message [cHashSp:37|sPort:localhost:1304|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1104|cHashRp:38]
-17:31:26 - Sending message [cHashSp:38|sPort:localhost:1104|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1204|cHashRp:22]
-17:31:28 - Got message [cHashSp:37|sPort:localhost:1304|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
-17:31:30 - Sending message [cHashSp:38|sPort:localhost:1104|mId:8|mTxt:|mTyp:TOKEN|rPort:localhost:1204|cHashRp:22]
-17:31:34 - Got message [cHashSp:18|sPort:localhost:1404|mId:4|mTxt:localhost:1204,localhost:1304|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
-17:31:36 - Sending message [cHashSp:18|sPort:localhost:1404|mId:9|mTxt:localhost:1204,localhost:1304,localhost:1104|mTyp:UPDATE|rPort:localhost:1404|cHashRp:18]
-17:31:39 - Got message [cHashSp:37|sPort:localhost:1304|mId:5|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
-17:31:40 - Sending message [cHashSp:38|sPort:localhost:1104|mId:10|mTxt:|mTyp:TOKEN|rPort:localhost:1404|cHashRp:18]
-17:31:41 - Got message [cHashSp:15|sPort:localhost:1604|mId:6|mTxt:|mTyp:NEW_NODE|rPort:localhost:1104|cHashRp:38]
-17:31:42 - Sending message [cHashSp:15|sPort:localhost:1604|mId:11|mTxt:|mTyp:NEW_NODE|rPort:localhost:1404|cHashRp:18]
-17:31:43 - Got message [cHashSp:37|sPort:localhost:1304|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1104|cHashRp:38]
-17:31:45 - Sending message [cHashSp:38|sPort:localhost:1104|mId:12|mTxt:|mTyp:TOKEN|rPort:localhost:1404|cHashRp:18]
-17:31:49 - Pausing for 10000 ms
-17:31:51 - Got message [cHashSp:15|sPort:localhost:1604|mId:8|mTxt:localhost:1404,localhost:1204,localhost:1304|mTyp:UPDATE|rPort:localhost:1104|cHashRp:38]
-17:31:51 - Sending message [cHashSp:15|sPort:localhost:1604|mId:13|mTxt:localhost:1404,localhost:1204,localhost:1304,localhost:1104|mTyp:UPDATE|rPort:localhost:1604|cHashRp:15]
-17:31:59 - Stopping...
+18:43:06 - Starting servent [cId: 5|ipA: localhost|lP: 1000]
+18:43:06 - Pausing for 50000 ms
+18:43:06 - First node in Chord system.
+18:43:17 - Got message [cHashSp:39|sPort:localhost:1100|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1000|cHashRp:5]
+# WE ARE LOCKING
+18:43:17 - Sending message [cHashSp:5|sPort:localhost:1000|mId:0|mTxt:|mTyp:WELCOME|rPort:localhost:1100|cHashRp:39]
+18:43:18 - Got message [cHashSp:39|sPort:localhost:1100|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1000|cHashRp:5]
+18:43:19 - Sending message [cHashSp:39|sPort:localhost:1100|mId:1|mTxt:localhost:1000|mTyp:UPDATE|rPort:localhost:1100|cHashRp:39]
+18:43:20 - Got message [cHashSp:39|sPort:localhost:1100|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1000|cHashRp:5]
+# WE ARE UNLOCKING
+18:43:20 - SENDING TOKEN FROM1000 TO 1100
+18:43:22 - Sending message [cHashSp:5|sPort:localhost:1000|mId:2|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:23 - Got message [cHashSp:39|sPort:localhost:1100|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:23 - SENDING TOKEN FROM1000 TO 1100
+18:43:23 - Sending message [cHashSp:5|sPort:localhost:1000|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:24 - Got message [cHashSp:39|sPort:localhost:1100|mId:4|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:24 - SENDING TOKEN FROM1000 TO 1100
+18:43:25 - Sending message [cHashSp:5|sPort:localhost:1000|mId:4|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:27 - Got message [cHashSp:39|sPort:localhost:1100|mId:5|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:27 - SENDING TOKEN FROM1000 TO 1100
+18:43:27 - Sending message [cHashSp:5|sPort:localhost:1000|mId:5|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:28 - Got message [cHashSp:39|sPort:localhost:1100|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:28 - SENDING TOKEN FROM1000 TO 1100
+18:43:28 - Got message [cHashSp:55|sPort:localhost:1200|mId:6|mTxt:|mTyp:NEW_NODE|rPort:localhost:1000|cHashRp:5]
+# WE ARE LOCKING
+18:43:29 - Sending message [cHashSp:5|sPort:localhost:1000|mId:6|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:29 - Got message [cHashSp:39|sPort:localhost:1100|mId:8|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:31 - Sending message [cHashSp:5|sPort:localhost:1000|mId:7|mTxt:|mTyp:WELCOME|rPort:localhost:1200|cHashRp:55]
+18:43:31 - Got message [cHashSp:55|sPort:localhost:1200|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1000|cHashRp:5]
+18:43:32 - Sending message [cHashSp:55|sPort:localhost:1200|mId:8|mTxt:localhost:1000|mTyp:UPDATE|rPort:localhost:1100|cHashRp:39]
+18:43:35 - Got message [cHashSp:55|sPort:localhost:1200|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1000|cHashRp:5]
+# WE ARE UNLOCKING
+18:43:35 - SENDING TOKEN FROM1000 TO 1100
+18:43:35 - Sending message [cHashSp:5|sPort:localhost:1000|mId:9|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:37 - Got message [cHashSp:53|sPort:localhost:1300|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1000|cHashRp:5]
+18:43:37 - Got message [cHashSp:55|sPort:localhost:1200|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:37 - SENDING TOKEN FROM1000 TO 1100
+18:43:38 - Sending message [cHashSp:53|sPort:localhost:1300|mId:10|mTxt:|mTyp:NEW_NODE|rPort:localhost:1100|cHashRp:39]
+18:43:38 - Sending message [cHashSp:5|sPort:localhost:1000|mId:11|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:40 - Got message [cHashSp:55|sPort:localhost:1200|mId:4|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:40 - SENDING TOKEN FROM1000 TO 1100
+18:43:41 - Sending message [cHashSp:5|sPort:localhost:1000|mId:12|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:43:45 - Got message [cHashSp:53|sPort:localhost:1300|mId:6|mTxt:localhost:1200|mTyp:UPDATE|rPort:localhost:1000|cHashRp:5]
+18:43:46 - Sending message [cHashSp:53|sPort:localhost:1300|mId:13|mTxt:localhost:1200,localhost:1000|mTyp:UPDATE|rPort:localhost:1100|cHashRp:39]
+18:43:48 - Got message [cHashSp:60|sPort:localhost:1400|mId:7|mTxt:|mTyp:NEW_NODE|rPort:localhost:1000|cHashRp:5]
+# WE ARE LOCKING
+18:43:50 - Got message [cHashSp:55|sPort:localhost:1200|mId:8|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:43:50 - Sending message [cHashSp:5|sPort:localhost:1000|mId:14|mTxt:|mTyp:WELCOME|rPort:localhost:1400|cHashRp:60]
+18:43:51 - Got message [cHashSp:60|sPort:localhost:1400|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1000|cHashRp:5]
+18:43:53 - Sending message [cHashSp:60|sPort:localhost:1400|mId:15|mTxt:localhost:1000|mTyp:UPDATE|rPort:localhost:1100|cHashRp:39]
+18:43:56 - Pausing for 10000 ms
+18:43:57 - Got message [cHashSp:60|sPort:localhost:1400|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1000|cHashRp:5]
+# WE ARE UNLOCKING
+18:43:57 - SENDING TOKEN FROM1000 TO 1100
+18:43:59 - Sending message [cHashSp:5|sPort:localhost:1000|mId:16|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:44:04 - Got message [cHashSp:60|sPort:localhost:1400|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:44:04 - SENDING TOKEN FROM1000 TO 1100
+18:44:05 - Sending message [cHashSp:5|sPort:localhost:1000|mId:17|mTxt:|mTyp:TOKEN|rPort:localhost:1100|cHashRp:39]
+18:44:06 - Stopping...

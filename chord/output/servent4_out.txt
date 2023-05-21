@@ -1,11 +1,14 @@
-17:31:39 - Starting servent [cId: 15|ipA: localhost|lP: 1604]
-17:31:39 - Pausing for 10000 ms
-17:31:40 - Sending message [cHashSp:15|sPort:localhost:1604|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1204|cHashRp:22]
-17:31:46 - Got message [cHashSp:18|sPort:localhost:1404|mId:4|mTxt:|mTyp:WELCOME|rPort:localhost:1604|cHashRp:15]
-17:31:47 - Sending message [cHashSp:15|sPort:localhost:1604|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1404|cHashRp:18]
-17:31:49 - Pausing for 10000 ms
-17:31:51 - Got message [cHashSp:15|sPort:localhost:1604|mId:13|mTxt:localhost:1404,localhost:1204,localhost:1304,localhost:1104|mTyp:UPDATE|rPort:localhost:1604|cHashRp:15]
-17:31:53 - Sending message [cHashSp:15|sPort:localhost:1604|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1404|cHashRp:18]
-17:31:59 - Pausing for 10000 ms
-17:32:09 - Pausing for 10000 ms
-17:32:19 - Stopping...
+18:43:46 - Starting servent [cId: 60|ipA: localhost|lP: 1400]
+18:43:46 - Pausing for 10000 ms
+18:43:47 - Sending message [cHashSp:60|sPort:localhost:1400|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1200|cHashRp:55]
+18:43:50 - Got message [cHashSp:5|sPort:localhost:1000|mId:14|mTxt:|mTyp:WELCOME|rPort:localhost:1400|cHashRp:60]
+18:43:51 - Sending message [cHashSp:60|sPort:localhost:1400|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1000|cHashRp:5]
+18:43:56 - Pausing for 10000 ms
+18:43:56 - Got message [cHashSp:60|sPort:localhost:1400|mId:9|mTxt:localhost:1000,localhost:1100,localhost:1300,localhost:1200|mTyp:UPDATE|rPort:localhost:1400|cHashRp:60]
+18:43:57 - Sending message [cHashSp:60|sPort:localhost:1400|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1000|cHashRp:5]
+18:44:02 - Got message [cHashSp:55|sPort:localhost:1200|mId:10|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+18:44:02 - SENDING TOKEN FROM1400 TO 1000
+18:44:04 - Sending message [cHashSp:60|sPort:localhost:1400|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+18:44:06 - Pausing for 10000 ms
+18:44:16 - Pausing for 10000 ms
+18:44:26 - Stopping...
