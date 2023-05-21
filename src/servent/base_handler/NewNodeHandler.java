@@ -43,6 +43,7 @@ public class NewNodeHandler implements MessageHandler {
 			if (isMyPred) { //if yes, prepare and send welcome message
 
 				//Pozivamo mutex lock
+				System.out.println("# WE ARE LOCKING");
 				TokenMutex.lock();
 
 				ServentInfo hisPred = AppConfig.chordState.getPredecessor();

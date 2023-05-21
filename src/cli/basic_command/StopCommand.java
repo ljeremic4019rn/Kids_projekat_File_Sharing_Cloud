@@ -4,6 +4,10 @@ import app.AppConfig;
 import cli.CLIParser;
 import servent.SimpleServentListener;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+
 public class StopCommand implements CLICommand {
 
 	private CLIParser parser;
@@ -24,6 +28,23 @@ public class StopCommand implements CLICommand {
 		AppConfig.timestampedStandardPrint("Stopping...");
 		parser.stop();
 		listener.stop();
+
+//	todo vrati	PullCollector.stop();
+
+		String bsAddress = AppConfig.BOOTSTRAP_ADDRESS;
+		int bsPort = AppConfig.BOOTSTRAP_PORT;
+
+		try {
+			Socket bsSocket = new Socket(bsAddress, bsPort);
+
+			PrintWriter bsWriter = new PrintWriter(bsSocket.getOutputStream());
+			bsWriter.write("Bye\n" + AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort() + "\n");
+			bsWriter.flush();
+
+			bsSocket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

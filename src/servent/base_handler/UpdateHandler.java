@@ -35,7 +35,8 @@ public class UpdateHandler implements MessageHandler {
 				String newMessageText = "";
 				if (clientMessage.getMessageText().equals("")) {
 					newMessageText = AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort();
-				} else {
+				}
+				else {
 					newMessageText = clientMessage.getMessageText() + "," + AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort();
 				}
 				Message nextUpdate = new UpdateMessage(clientMessage.getSenderIpAddress(), clientMessage.getSenderPort(),
