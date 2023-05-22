@@ -16,7 +16,7 @@ public class FileInfo implements Serializable {
     private final String content;
     private final boolean isDirectory;
     private final List<String> subFiles;
-    private int OgNode = -1;
+    private final int OgNode;
 
     public FileInfo(String path, boolean isDirectory, String content, List<String> subFiles, int ogNode) {
         this.path = path;
@@ -78,13 +78,11 @@ public class FileInfo implements Serializable {
 
     }
 
-
-
     @Override
     public String toString() {
         String toReturn;
-        if (isDirectory) toReturn = "[" + getPath() + " {" + getSubFiles() + "}]";
-        else toReturn = "[" + getPath() + "]";
+        if (isDirectory) toReturn = "[" + getPath() + " {" + getSubFiles() + "}] - inside node: " + getOgNode();
+        else toReturn = "[" + getPath() + "] - inside node: " + getOgNode();
         return toReturn;
     }
 

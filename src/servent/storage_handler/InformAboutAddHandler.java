@@ -26,7 +26,7 @@ public class InformAboutAddHandler implements MessageHandler {
 
             if (key == AppConfig.myServentInfo.getChordId()) {
                 FileInfo fileInfo = additionInfoMsg.getFileInfo();
-                AppConfig.chordState.addtoStorage(fileInfo, additionInfoMsg.getSenderIpAddress(), additionInfoMsg.getSenderPort());
+                AppConfig.chordState.addToStorage(fileInfo, additionInfoMsg.getSenderIpAddress(), additionInfoMsg.getSenderPort());
             }
             else {
                 ServentInfo nextNode = AppConfig.chordState.getNextNodeForKey(key);

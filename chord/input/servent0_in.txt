@@ -1,4 +1,4 @@
 pause 51000
-add test.txt
-pause 10000
+add testDir
+pause 20000
 stop

@@ -15,8 +15,7 @@ public class JoinedHandler implements MessageHandler {
     public void run() {
 
         if (clientMessage.getMessageType() == MessageType.JOINED) {
-            System.out.println("# WE ARE UNLOCKING");
-            TokenMutex.unlock();
+            TokenMutex.unlock();//UNLOCK 1n
         } else {
             AppConfig.timestampedErrorPrint("Joined handler got message that's not of type JOINED.");
         }

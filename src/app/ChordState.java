@@ -246,13 +246,10 @@ public class ChordState {
         updateSuccessorTable();
     }
 
-
     public void addToStorage(FileInfo fileInfo, String requesterIp, int requesterPort) {
         if (!storageMap.containsKey(fileInfo.getPath())) { //Proverimo da li vec imamo fajl, ako nemamo ododaj podatke
             storageMap.put(fileInfo.getPath(), new FileInfo(fileInfo));
             AppConfig.timestampedStandardPrint("File " + fileInfo.getPath() + " stored successfully.");
-
-            TokenMutex.unlock(); //todo UNLOCK 1a
 
             String nextNodeIp = AppConfig.chordState.getNextNodeIp();
             int nextNodePort = AppConfig.chordState.getNextNodePort();
@@ -273,6 +270,8 @@ public class ChordState {
     }
 
     //todo storage pull file
+
+    //todo storage remove file
 
     public ServentInfo[] getSuccessorTable() {
         return successorTable;
@@ -315,7 +314,7 @@ public class ChordState {
     }
 
 
-    public void addtoStorage(FileInfo fileInfo, String requesterIp, int requesterPort) {
+    public void adddtoStorage(FileInfo fileInfo, String requesterIp, int requesterPort) {
         if (!storageMap.containsKey(fileInfo.getPath())) { //Proverimo da li vec imamo fajl, ako nemamo ododaj podatke
             storageMap.put(fileInfo.getPath(), new FileInfo(fileInfo));
             AppConfig.timestampedStandardPrint("File " + fileInfo.getPath() + " stored successfully.");
