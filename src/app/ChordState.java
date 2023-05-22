@@ -6,6 +6,7 @@ import servent.base_message.WelcomeMessage;
 import servent.base_message.util.MessageUtil;
 import servent.storage_message.AddInformMessage;
 import servent.storage_message.AskPullMessage;
+import servent.storage_message.RemoveMessage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -274,10 +275,10 @@ public class ChordState {
             AppConfig.timestampedStandardPrint("Sending inform message " + addInfoMsg);
             MessageUtil.sendMessage(addInfoMsg);
 
-//            System.out.println("# Nakon dodavanja u storage");
-//            for (Map.Entry<String, FileInfo> map: storageMap.entrySet()) {
-//                System.out.println("storage = " + map.getKey() + " -- " + map.getValue() + " -- " + map.getValue().getOgNode());
-//            }
+            System.out.println("# Nakon dodavanja u storage");
+            for (Map.Entry<String, FileInfo> map: storageMap.entrySet()) {
+                System.out.println("storage = " + map.getKey() + " -- " + map.getValue() + " -- " + map.getValue().getOgNode());
+            }
         }
         else {
             AppConfig.timestampedStandardPrint("We already have " + fileInfo.getPath());
@@ -320,7 +321,7 @@ public class ChordState {
     public void printPulledFiles(){
         AppConfig.timestampedStandardPrint("Printing pulled files");
         for (FileInfo pulledFile: pulledFiles){
-            System.out.println("-----" + pulledFile.getPath() + "-----");
+            System.out.println("\n-----" + pulledFile.getPath() + "-----");
             System.out.println(pulledFile.getContent());
         }
     }
@@ -361,7 +362,32 @@ public class ChordState {
         return filePaths;
     }
 
-    //todo storage remove file
+    public void removeFileFromStorage(String path){
+        if (!storageMap.containsKey(path)) AppConfig.timestampedErrorPrint("File already removed - " + path);
+
+        FileInfo fileToRemove = storageMap.get(path);
+        if (fileToRemove.isFile()){
+            storageMap.remove(path);
+            AppConfig.timestampedStandardPrint("Removing file" + path + " from virtual memory");
+            System.err.println("Removed file " + path);
+
+            Message removeMessage = new RemoveMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
+                    getNextNodeIp(), getNextNodePort(), path);
+            MessageUtil.sendMessage(removeMessage);
+        }
+        else {
+            for (String dirFileToRemove: getAllFilesFromDir(fileToRemove)) {
+                storageMap.remove(dirFileToRemove);
+                System.err.println("Removed dir file " + dirFileToRemove);
+
+                Message removeMessage = new RemoveMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
+                        getNextNodeIp(), getNextNodePort(), path);
+                MessageUtil.sendMessage(removeMessage);
+            }
+        }
+    }
+
+
 
     public ServentInfo[] getSuccessorTable() {
         return successorTable;

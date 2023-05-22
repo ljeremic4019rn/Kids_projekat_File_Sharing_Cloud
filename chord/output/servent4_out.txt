@@ -1,54 +1,90 @@
-22:48:39 - Starting servent [cId: 8|ipA: localhost|lP: 1411]
-22:48:39 - Pausing for 10000 ms
-# MY CONNECTING PARTNERS PORT IS 1311
-22:48:40 - Sending message [cHashSp:8|sPort:localhost:1411|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1311|cHashRp:50]
-22:48:45 - Got message [cHashSp:29|sPort:localhost:1011|mId:13|mTxt:|mTyp:WELCOME|rPort:localhost:1411|cHashRp:8]
+23:59:39 - Starting servent [cId: 60|ipA: localhost|lP: 1400]
+23:59:39 - Pausing for 10000 ms
+# MY CONNECTING PARTNERS PORT IS 1300
+23:59:40 - Sending message [cHashSp:60|sPort:localhost:1400|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1300|cHashRp:53]
+23:59:46 - Got message [cHashSp:5|sPort:localhost:1000|mId:13|mTxt:|mTyp:WELCOME|rPort:localhost:1400|cHashRp:60]
 # MY PREDECESSOR IS null
-# MY SUCCESSORS ARE [[cId: 29|ipA: localhost|lP: 1011], null, null, null, null, null]
-22:48:46 - Sending message [cHashSp:8|sPort:localhost:1411|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1011|cHashRp:29]
-22:48:49 - Pausing for 10000 ms
-22:48:50 - Got message [cHashSp:8|sPort:localhost:1411|mId:16|mTxt:localhost:1011,localhost:1211,localhost:1311,localhost:1111|mTyp:UPDATE|rPort:localhost:1411|cHashRp:8]
-22:48:51 - Sending message [cHashSp:8|sPort:localhost:1411|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1011|cHashRp:29]
-22:48:53 - Got message [cHashSp:60|sPort:localhost:1111|mId:17|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1411|cHashRp:8]
-22:48:53 - File testDir\dirTest2.txt stored successfully.
-22:48:53 - Sending inform message [cHashSp:8|sPort:localhost:1411|mId:3|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:53 - Got message [cHashSp:60|sPort:localhost:1111|mId:18|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1411|cHashRp:8]
-22:48:53 - File testDir\subDir\subDirTest1.txt stored successfully.
-22:48:53 - Sending inform message [cHashSp:8|sPort:localhost:1411|mId:4|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Got message [cHashSp:60|sPort:localhost:1111|mId:21|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1411|cHashRp:8]
-22:48:54 - File testDir\subDir\subDirTest2.txt stored successfully.
-22:48:54 - Sending inform message [cHashSp:8|sPort:localhost:1411|mId:5|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Sending message [cHashSp:8|sPort:localhost:1411|mId:3|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Got message [cHashSp:60|sPort:localhost:1111|mId:20|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1411|cHashRp:8]
-22:48:54 - File testDir\subDir stored successfully.
-22:48:54 - Sending inform message [cHashSp:8|sPort:localhost:1411|mId:6|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Got message [cHashSp:60|sPort:localhost:1111|mId:19|mTxt:|mTyp:TOKEN|rPort:localhost:1411|cHashRp:8]
-22:48:54 - Got message [cHashSp:60|sPort:localhost:1111|mId:22|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1411|cHashRp:8]
-22:48:54 - File testDir stored successfully.
-22:48:54 - Sending inform message [cHashSp:8|sPort:localhost:1411|mId:8|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Sending message [cHashSp:8|sPort:localhost:1411|mId:4|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Sending message [cHashSp:8|sPort:localhost:1411|mId:5|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:54 - Sending message [cHashSp:8|sPort:localhost:1411|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1011|cHashRp:29]
-22:48:55 - Sending message [cHashSp:8|sPort:localhost:1411|mId:6|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:55 - Got message [cHashSp:60|sPort:localhost:1111|mId:23|mTxt:|mTyp:TOKEN|rPort:localhost:1411|cHashRp:8]
-22:48:56 - Sending message [cHashSp:8|sPort:localhost:1411|mId:8|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:57 - Sending message [cHashSp:8|sPort:localhost:1411|mId:9|mTxt:|mTyp:TOKEN|rPort:localhost:1011|cHashRp:29]
-22:48:58 - Got message [cHashSp:60|sPort:localhost:1111|mId:25|mTxt:|mTyp:TOKEN|rPort:localhost:1411|cHashRp:8]
-22:48:58 - Got message [cHashSp:60|sPort:localhost:1111|mId:24|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1411|cHashRp:8]
-22:48:58 - File fileTest1.txt stored successfully.
-22:48:58 - Sending inform message [cHashSp:8|sPort:localhost:1411|mId:11|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:59 - Sending message [cHashSp:8|sPort:localhost:1411|mId:11|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1011|cHashRp:29]
-22:48:59 - Sending message [cHashSp:8|sPort:localhost:1411|mId:10|mTxt:|mTyp:TOKEN|rPort:localhost:1011|cHashRp:29]
-22:48:59 - Pausing for 10000 ms
-22:49:01 - Got message [cHashSp:60|sPort:localhost:1111|mId:26|mTxt:|mTyp:TOKEN|rPort:localhost:1411|cHashRp:8]
-22:49:02 - Sending message [cHashSp:8|sPort:localhost:1411|mId:12|mTxt:|mTyp:TOKEN|rPort:localhost:1011|cHashRp:29]
-22:49:03 - Got message [cHashSp:60|sPort:localhost:1111|mId:27|mTxt:|mTyp:TOKEN|rPort:localhost:1411|cHashRp:8]
-22:49:03 - Sending message [cHashSp:8|sPort:localhost:1411|mId:13|mTxt:|mTyp:TOKEN|rPort:localhost:1011|cHashRp:29]
-22:49:04 - Got message [cHashSp:60|sPort:localhost:1111|mId:29|mTxt:|mTyp:ASK_PULL|rPort:localhost:1411|cHashRp:8]
-22:49:04 - Got message [cHashSp:60|sPort:localhost:1111|mId:28|mTxt:|mTyp:ASK_PULL|rPort:localhost:1411|cHashRp:8]
-22:49:04 - Sending message [cHashSp:8|sPort:localhost:1411|mId:14|mTxt:|mTyp:ASK_PULL|rPort:localhost:1011|cHashRp:29]
-22:49:04 - Got message [cHashSp:60|sPort:localhost:1111|mId:30|mTxt:|mTyp:ASK_PULL|rPort:localhost:1411|cHashRp:8]
-22:49:05 - Sending message [cHashSp:8|sPort:localhost:1411|mId:15|mTxt:|mTyp:ASK_PULL|rPort:localhost:1011|cHashRp:29]
-22:49:05 - Sending message [cHashSp:8|sPort:localhost:1411|mId:16|mTxt:|mTyp:ASK_PULL|rPort:localhost:1011|cHashRp:29]
-22:49:09 - Pausing for 10000 ms
-22:49:19 - Stopping...
+# MY SUCCESSORS ARE [[cId: 5|ipA: localhost|lP: 1000], null, null, null, null, null]
+23:59:48 - Sending message [cHashSp:60|sPort:localhost:1400|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1000|cHashRp:5]
+23:59:49 - Pausing for 10000 ms
+23:59:52 - Got message [cHashSp:60|sPort:localhost:1400|mId:10|mTxt:localhost:1000,localhost:1100,localhost:1300,localhost:1200|mTyp:UPDATE|rPort:localhost:1400|cHashRp:60]
+23:59:53 - Sending message [cHashSp:60|sPort:localhost:1400|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1000|cHashRp:5]
+23:59:53 - Got message [cHashSp:55|sPort:localhost:1200|mId:13|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1400|cHashRp:60]
+23:59:53 - File testDir\dirTest2.txt stored successfully.
+23:59:53 - Sending inform message [cHashSp:60|sPort:localhost:1400|mId:3|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+# Nakon dodavanja u storage
+storage = testDir\dirTest2.txt -- [testDir\dirTest2.txt] - inside node: 5 -- 5
+23:59:53 - Got message [cHashSp:55|sPort:localhost:1200|mId:14|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1400|cHashRp:60]
+23:59:53 - File testDir\subDir\subDirTest1.txt stored successfully.
+23:59:53 - Sending inform message [cHashSp:60|sPort:localhost:1400|mId:4|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+# Nakon dodavanja u storage
+storage = testDir\subDir\subDirTest1.txt -- [testDir\subDir\subDirTest1.txt] - inside node: 5 -- 5
+storage = testDir\dirTest2.txt -- [testDir\dirTest2.txt] - inside node: 5 -- 5
+23:59:54 - Got message [cHashSp:55|sPort:localhost:1200|mId:12|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1400|cHashRp:60]
+23:59:54 - File testDir\subDir stored successfully.
+23:59:54 - Sending inform message [cHashSp:60|sPort:localhost:1400|mId:5|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+# Nakon dodavanja u storage
+storage = testDir\subDir\subDirTest1.txt -- [testDir\subDir\subDirTest1.txt] - inside node: 5 -- 5
+storage = testDir\dirTest2.txt -- [testDir\dirTest2.txt] - inside node: 5 -- 5
+storage = testDir\subDir -- [testDir\subDir {[testDir\subDir\subDirTest1.txt, testDir\subDir\subDirTest2.txt]}] - inside node: 5 -- 5
+23:59:54 - Got message [cHashSp:55|sPort:localhost:1200|mId:11|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1400|cHashRp:60]
+23:59:54 - File testDir stored successfully.
+23:59:54 - Sending inform message [cHashSp:60|sPort:localhost:1400|mId:6|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+# Nakon dodavanja u storage
+storage = testDir\subDir\subDirTest1.txt -- [testDir\subDir\subDirTest1.txt] - inside node: 5 -- 5
+storage = testDir\dirTest2.txt -- [testDir\dirTest2.txt] - inside node: 5 -- 5
+storage = testDir -- [testDir {[testDir\dirTest2.txt, testDir\subDir]}] - inside node: 5 -- 5
+storage = testDir\subDir -- [testDir\subDir {[testDir\subDir\subDirTest1.txt, testDir\subDir\subDirTest2.txt]}] - inside node: 5 -- 5
+23:59:54 - Sending message [cHashSp:60|sPort:localhost:1400|mId:3|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+23:59:54 - Got message [cHashSp:55|sPort:localhost:1200|mId:15|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+23:59:54 - Sending message [cHashSp:60|sPort:localhost:1400|mId:4|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+23:59:55 - Got message [cHashSp:55|sPort:localhost:1200|mId:16|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1400|cHashRp:60]
+23:59:55 - File testDir\subDir\subDirTest2.txt stored successfully.
+23:59:55 - Sending inform message [cHashSp:60|sPort:localhost:1400|mId:8|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+# Nakon dodavanja u storage
+storage = testDir\subDir\subDirTest1.txt -- [testDir\subDir\subDirTest1.txt] - inside node: 5 -- 5
+storage = testDir\subDir\subDirTest2.txt -- [testDir\subDir\subDirTest2.txt] - inside node: 5 -- 5
+storage = testDir\dirTest2.txt -- [testDir\dirTest2.txt] - inside node: 5 -- 5
+storage = testDir -- [testDir {[testDir\dirTest2.txt, testDir\subDir]}] - inside node: 5 -- 5
+storage = testDir\subDir -- [testDir\subDir {[testDir\subDir\subDirTest1.txt, testDir\subDir\subDirTest2.txt]}] - inside node: 5 -- 5
+23:59:55 - Sending message [cHashSp:60|sPort:localhost:1400|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+23:59:55 - Sending message [cHashSp:60|sPort:localhost:1400|mId:5|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+23:59:55 - Sending message [cHashSp:60|sPort:localhost:1400|mId:6|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+23:59:56 - Sending message [cHashSp:60|sPort:localhost:1400|mId:8|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+23:59:56 - Got message [cHashSp:55|sPort:localhost:1200|mId:17|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+23:59:57 - Sending message [cHashSp:60|sPort:localhost:1400|mId:9|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+23:59:59 - Pausing for 10000 ms
+00:00:00 - Got message [cHashSp:55|sPort:localhost:1200|mId:18|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1400|cHashRp:60]
+00:00:00 - File fileTest1.txt stored successfully.
+00:00:00 - Sending inform message [cHashSp:60|sPort:localhost:1400|mId:10|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+# Nakon dodavanja u storage
+storage = testDir\subDir\subDirTest1.txt -- [testDir\subDir\subDirTest1.txt] - inside node: 5 -- 5
+storage = testDir\subDir\subDirTest2.txt -- [testDir\subDir\subDirTest2.txt] - inside node: 5 -- 5
+storage = testDir\dirTest2.txt -- [testDir\dirTest2.txt] - inside node: 5 -- 5
+storage = fileTest1.txt -- [fileTest1.txt] - inside node: 39 -- 39
+storage = testDir -- [testDir {[testDir\dirTest2.txt, testDir\subDir]}] - inside node: 5 -- 5
+storage = testDir\subDir -- [testDir\subDir {[testDir\subDir\subDirTest1.txt, testDir\subDir\subDirTest2.txt]}] - inside node: 5 -- 5
+00:00:00 - Got message [cHashSp:55|sPort:localhost:1200|mId:19|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+00:00:01 - Sending message [cHashSp:60|sPort:localhost:1400|mId:10|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1000|cHashRp:5]
+00:00:01 - Got message [cHashSp:55|sPort:localhost:1200|mId:22|mTxt:|mTyp:ASK_PULL|rPort:localhost:1400|cHashRp:60]
+00:00:01 - Sending message [cHashSp:60|sPort:localhost:1400|mId:11|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+00:00:01 - Got message [cHashSp:55|sPort:localhost:1200|mId:23|mTxt:|mTyp:ASK_PULL|rPort:localhost:1400|cHashRp:60]
+00:00:02 - Got message [cHashSp:55|sPort:localhost:1200|mId:20|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+00:00:02 - Got message [cHashSp:55|sPort:localhost:1200|mId:21|mTxt:|mTyp:ASK_PULL|rPort:localhost:1400|cHashRp:60]
+00:00:02 - Sending message [cHashSp:60|sPort:localhost:1400|mId:14|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+00:00:02 - Sending message [cHashSp:60|sPort:localhost:1400|mId:13|mTxt:|mTyp:ASK_PULL|rPort:localhost:1000|cHashRp:5]
+00:00:03 - Sending message [cHashSp:60|sPort:localhost:1400|mId:15|mTxt:|mTyp:ASK_PULL|rPort:localhost:1000|cHashRp:5]
+00:00:03 - Sending message [cHashSp:60|sPort:localhost:1400|mId:12|mTxt:|mTyp:ASK_PULL|rPort:localhost:1000|cHashRp:5]
+00:00:05 - Got message [cHashSp:55|sPort:localhost:1200|mId:24|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+00:00:06 - Sending message [cHashSp:60|sPort:localhost:1400|mId:16|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+00:00:06 - Got message [cHashSp:55|sPort:localhost:1200|mId:25|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+00:00:07 - Sending message [cHashSp:60|sPort:localhost:1400|mId:17|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+00:00:09 - Pausing for 10000 ms
+00:00:09 - Got message [cHashSp:55|sPort:localhost:1200|mId:26|mTxt:fileTest1.txt|mTyp:REMOVE|rPort:localhost:1400|cHashRp:60]
+00:00:09 - Removing filefileTest1.txt from virtual memory
+00:00:10 - Sending message [cHashSp:60|sPort:localhost:1400|mId:18|mTxt:fileTest1.txt|mTyp:REMOVE|rPort:localhost:1000|cHashRp:5]
+00:00:10 - Got message [cHashSp:55|sPort:localhost:1200|mId:28|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+00:00:10 - Got message [cHashSp:55|sPort:localhost:1200|mId:27|mTxt:|mTyp:TOKEN|rPort:localhost:1400|cHashRp:60]
+00:00:11 - Sending message [cHashSp:60|sPort:localhost:1400|mId:19|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+00:00:12 - Sending message [cHashSp:60|sPort:localhost:1400|mId:20|mTxt:|mTyp:TOKEN|rPort:localhost:1000|cHashRp:5]
+00:00:19 - Stopping...

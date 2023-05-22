@@ -1,32 +1,7 @@
-testDir\subDir\subDirTest1.txt aa
-testDir\subDir\subDirTest2.txt aa
-testDir\dirTest2.txt aa
-fileTest1.txt aa
-testDir aa
-testDir\subDir aa
-NASLI SMO 3 da povucemo
-saljemo nazad velicinu 3
-clear the list
-22:49:01 - sent ask msg [cHashSp:44|sPort:localhost:1211|mId:20|mTxt:|mTyp:ASK_PULL|rPort:localhost:1311|cHashRp:50]
-22:49:01 - sent ask msg [cHashSp:44|sPort:localhost:1211|mId:21|mTxt:|mTyp:ASK_PULL|rPort:localhost:1311|cHashRp:50]
-22:49:01 - sent ask msg [cHashSp:44|sPort:localhost:1211|mId:22|mTxt:|mTyp:ASK_PULL|rPort:localhost:1311|cHashRp:50]
-ocekujemo 3
-# UHVATILI SMO TELL
-
-22:49:06 - Couldn't send message: [cHashSp:44|sPort:localhost:1211|mId:24|mTxt:|mTyp:TOKEN|rPort:localhost:1311|cHashRp:50]
-java.net.ConnectException: Connection refused: connect
-	at java.base/sun.nio.ch.Net.connect0(Native Method)
-	at java.base/sun.nio.ch.Net.connect(Net.java:576)
-	at java.base/sun.nio.ch.Net.connect(Net.java:565)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
-	at java.base/java.net.Socket.connect(Socket.java:645)
-	at java.base/java.net.Socket.connect(Socket.java:595)
-	at java.base/java.net.Socket.<init>(Socket.java:519)
-	at java.base/java.net.Socket.<init>(Socket.java:293)
-	at servent.base_message.util.DelayedMessageSender.run(DelayedMessageSender.java:41)
-	at java.base/java.lang.Thread.run(Thread.java:831)
-# UHVATILI SMO TELL
-
-# UHVATILI SMO TELL
-
+00:00:01 - sent ask msg [cHashSp:55|sPort:localhost:1200|mId:21|mTxt:|mTyp:ASK_PULL|rPort:localhost:1400|cHashRp:60]
+00:00:01 - sent ask msg [cHashSp:55|sPort:localhost:1200|mId:22|mTxt:|mTyp:ASK_PULL|rPort:localhost:1400|cHashRp:60]
+00:00:01 - sent ask msg [cHashSp:55|sPort:localhost:1200|mId:23|mTxt:|mTyp:ASK_PULL|rPort:localhost:1400|cHashRp:60]
+USLI SMO U REMOVE LISTENER
+USLI SMO U REMOVE HANDLER
+Removed file fileTest1.txt
+SKLONILI SMO

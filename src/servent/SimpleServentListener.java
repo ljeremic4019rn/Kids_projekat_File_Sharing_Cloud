@@ -5,10 +5,7 @@ import app.Cancellable;
 import servent.base_handler.*;
 import servent.base_message.Message;
 import servent.base_message.util.MessageUtil;
-import servent.storage_handler.AddInformHandler;
-import servent.storage_handler.AskPullHandler;
-import servent.storage_handler.TellPullHandler;
-import servent.storage_handler.TokenHandler;
+import servent.storage_handler.*;
 import servent.storage_message.AskPullMessage;
 import servent.storage_message.TellPullMessage;
 
@@ -84,9 +81,10 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				case TELL_PULL:
                     messageHandler = new TellPullHandler(clientMessage);
 					break;
-//				case REMOVE:
-//					messageHandler = new RemoveHandler(clientMessage);
-//					break;
+				case REMOVE:
+                    System.err.println("USLI SMO U REMOVE LISTENER");
+					messageHandler = new RemoveHandler(clientMessage);
+					break;
                     case ADD_INFORM:
                         messageHandler = new AddInformHandler(clientMessage);
                         break;
