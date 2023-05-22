@@ -1,0 +1,95 @@
+0-bootstrapServer {
+	Hail-> posalje novom nodu ip:port nekog ranom noda, za koga ce da se taj novi poveze (da mu lokaciju u chain-u nodova)
+		   prvom nodu ce dati -1 i on inicijalizuje pocetak programa
+	New -> doda novi node u svoju listu
+	Bye -> skloni node is svoje liste
+}
+
+1-servent main -> poziva serventInitializer
+
+2-serventInitializer {
+	Hailuje Bootstrap i getuje svoj u poziciju u chainu
+	
+	ako jeste prvi node - TokenMutex.init (uzmi token kod sebe)
+
+	ako nije prvi prosledi svima ostalima newNodeMsg (da se pojavio novi u chainu)
+}
+
+3-NEW_NODE msg (SSL - uhvati newNodeMsg i prosledi nnHandleru) {
+	servent (koji je prethodnik) novog noda treba da ga ubaci u chain
+	cekamo da dobijemo token i uradimo lock
+	podesimo storage filova novog noda 
+	posaljemo welcomeMessage novom nodu
+	
+	AKO nismo pored novog noda samo prosledi NEW_NODE msg dalje dok ne nadjes koji treba
+}
+
+4-WELCOME msg (SSL - uhvati welcomeMsg i prosledi wHandleru) {
+	novi node primi welcome poruku
+	Inicijalizuje ChordState
+	
+	posalje BootStrap serveru "New", sto ga doda u listu svih servenata
+	
+	Napravi UPDATE msg i posalje seldecem ()
+}
+
+5-UPDATE msg (SSL - uhvati updateMsg i prosledi uHandleru) {
+	ako je node koji je primio update negde u sredini chain-a dodaj novog noda kod sebe u listu, prosledi UpdateMsg dalje
+	
+	ako node koji je primio update je novi node onda dodaj listu svih nodova kod sebe
+	
+	posalji JOIN msg, koji prima JoinHanlder da unlock-uje mutex, od onoga koji drzi token
+}
+
+-STORAGE-
+
+1.1-ADD_COMMAND {
+	proveri da li file/dir postoji i posalje ga ChordState-u da ga stavi u svoju mapu
+	Mutex.Lock
+	addToStorage metoda u chord, stavi u mapu, zatim napravi ADD_INFORM msg koji ce da informise druge nodove da dodaju u svoje mape
+	posalje poruku sledecem nodu
+	Mutex.Unlock
+}
+
+1.2-ADD_INFORM msg (SSL - uhvati addInform msg i prosledi iaHandleru){
+	ako smo mi node kojem je poslata poruka (iz addToStorage metode)
+	dodaj file u svoju mapu
+	
+	ako nismo oni koji trebaju da sacuvaju posalji dalje istu poruku
+}
+
+
+
+2.1-PULL_COMMAND {
+	aktivira ChordState pullFile koji onda
+	nadje sve filove koje treba da pulla
+	napravi za svaki ASK_PULL msg i posalje ostalima a zatim ceka
+	
+	kada se zavrsi 2.3 i stignu svi pullovi -> printa se lista
+}
+
+2.2-ASK_PULL msg (SSL - uhvati askPull msg i prosledi apHandleru){
+	ask pull handler proveri da li smo mi od koga trebamo da pullamo file info
+	zapakuje info u TELL_PULL msg i posalje dalje
+}
+
+2.3-TELL_PULL msg (SSL - uhvati tellPull msg i prosledi tpHandleru){
+	tell pull handler proveri da li smo mi onaj koji je originalno trazio pull
+	postavi pull info u listu pullovanih filova da se printaju
+}
+
+
+
+3.1-REMOVE_COMMAND {
+	Mutex.Lock
+	Proveri da li smo mi oni koji su originalno dodali file u memoriju, ako jesmo
+	skloni iz nase memorije 
+	napravi REMOVE msg
+	prosledi ostalima remove msg
+	Mutex.Unlock
+}
+
+2.2-REMOVE msg (SSL - uhvati remove msg i prosledi rHandleru){
+	proveri da li smo vec sklonili file iz memorije
+	skloni ga
+}
