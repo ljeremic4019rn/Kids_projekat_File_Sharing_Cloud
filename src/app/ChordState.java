@@ -1,11 +1,10 @@
 package app;
 
 import app.file_util.FileInfo;
-import mutex.TokenMutex;
 import servent.base_message.Message;
 import servent.base_message.WelcomeMessage;
 import servent.base_message.util.MessageUtil;
-import servent.storage_message.InformAboutAddMessage;
+import servent.storage_message.AddInformMessage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
@@ -254,7 +253,7 @@ public class ChordState {
             String nextNodeIp = AppConfig.chordState.getNextNodeIp();
             int nextNodePort = AppConfig.chordState.getNextNodePort();
 
-            Message addInfoMsg = new InformAboutAddMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
+            Message addInfoMsg = new AddInformMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
                     nextNodeIp, nextNodePort, requesterIp, requesterPort, fileInfo);
             AppConfig.timestampedStandardPrint("Sending inform message " + addInfoMsg);
             MessageUtil.sendMessage(addInfoMsg);
@@ -322,7 +321,7 @@ public class ChordState {
             String nextNodeIp = AppConfig.chordState.getNextNodeIp();
             int nextNodePort = AppConfig.chordState.getNextNodePort();
 
-            Message addInfoMsg = new InformAboutAddMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
+            Message addInfoMsg = new AddInformMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
                     nextNodeIp, nextNodePort, requesterIp, requesterPort, fileInfo);
             AppConfig.timestampedStandardPrint("Sending inform message " + addInfoMsg);
             MessageUtil.sendMessage(addInfoMsg);

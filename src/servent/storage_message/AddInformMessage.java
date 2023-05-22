@@ -7,7 +7,7 @@ import servent.base_message.MessageType;
 
 import java.io.Serial;
 
-public class InformAboutAddMessage extends BasicMessage {
+public class AddInformMessage extends BasicMessage {
 
     @Serial
     private static final long serialVersionUID = 7277911492888707017L;
@@ -15,8 +15,8 @@ public class InformAboutAddMessage extends BasicMessage {
     private final int requesterPort;
     private final FileInfo fileInfo;
 
-    public InformAboutAddMessage(String senderIpAddress, int senderPort, String receiverIpAddress, int receiverPort,
-                                 String requesterIpAddress, int requesterPort, FileInfo fileInfo) {
+    public AddInformMessage(String senderIpAddress, int senderPort, String receiverIpAddress, int receiverPort,
+                            String requesterIpAddress, int requesterPort, FileInfo fileInfo) {
         super(MessageType.ADD_INFORM, senderIpAddress, senderPort, receiverIpAddress, receiverPort);
 
         this.requesterIpAddress = requesterIpAddress;

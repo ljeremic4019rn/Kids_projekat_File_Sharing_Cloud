@@ -8,18 +8,18 @@ import servent.base_handler.MessageHandler;
 import servent.base_message.Message;
 import servent.base_message.MessageType;
 import servent.base_message.util.MessageUtil;
-import servent.storage_message.InformAboutAddMessage;
+import servent.storage_message.AddInformMessage;
 
-public class InformAboutAddHandler implements MessageHandler {
+public class AddInformHandler implements MessageHandler {
 
     private final Message clientMessage;
 
-    public InformAboutAddHandler(Message clientMessage) { this.clientMessage = clientMessage; }
+    public AddInformHandler(Message clientMessage) { this.clientMessage = clientMessage; }
 
     @Override
     public void run() {
         if (clientMessage.getMessageType() == MessageType.ADD_INFORM) {
-            InformAboutAddMessage additionInfoMsg = (InformAboutAddMessage) clientMessage;
+            AddInformMessage additionInfoMsg = (AddInformMessage) clientMessage;
 
             String requesterNode = additionInfoMsg.getReceiverIpAddress() + ":" + additionInfoMsg.getReceiverPort();
             int key = ChordState.chordHash(requesterNode);
@@ -30,7 +30,7 @@ public class InformAboutAddHandler implements MessageHandler {
             }
             else {
                 ServentInfo nextNode = AppConfig.chordState.getNextNodeForKey(key);
-                Message nextSuccessMessage = new InformAboutAddMessage(
+                Message nextSuccessMessage = new AddInformMessage(
                         additionInfoMsg.getSenderIpAddress(), additionInfoMsg.getSenderPort(),
                         nextNode.getIpAddress(), nextNode.getListenerPort(),
                         additionInfoMsg.getRequesterIpAddress(), additionInfoMsg.getRequesterPort(),

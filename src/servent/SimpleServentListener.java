@@ -5,7 +5,7 @@ import app.Cancellable;
 import servent.base_handler.*;
 import servent.base_message.Message;
 import servent.base_message.util.MessageUtil;
-import servent.storage_handler.InformAboutAddHandler;
+import servent.storage_handler.AddInformHandler;
 import servent.storage_handler.TokenHandler;
 
 import java.io.IOException;
@@ -85,7 +85,7 @@ public class SimpleServentListener implements Runnable, Cancellable {
 //					messageHandler = new RemoveHandler(clientMessage);
 //					break;
                     case ADD_INFORM:
-                        messageHandler = new InformAboutAddHandler(clientMessage);
+                        messageHandler = new AddInformHandler(clientMessage);
                         break;
 
                     case POISON:
