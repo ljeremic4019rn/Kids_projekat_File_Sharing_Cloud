@@ -6,7 +6,11 @@ import servent.base_handler.*;
 import servent.base_message.Message;
 import servent.base_message.util.MessageUtil;
 import servent.storage_handler.AddInformHandler;
+import servent.storage_handler.AskPullHandler;
+import servent.storage_handler.TellPullHandler;
 import servent.storage_handler.TokenHandler;
+import servent.storage_message.AskPullMessage;
+import servent.storage_message.TellPullMessage;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -74,13 +78,12 @@ public class SimpleServentListener implements Runnable, Cancellable {
                     case JOINED:
                         messageHandler = new JoinedHandler(clientMessage);
                         break;
-
-//				case ASK_PULL:
-//					messageHandler = new AskPullHandler(clientMessage);
-//					break;
-//				case TELL_PULL:
-//					messageHandler = new TellPullHandler(clientMessage);
-//					break;
+				case ASK_PULL:
+                    messageHandler = new AskPullHandler(clientMessage);
+					break;
+				case TELL_PULL:
+                    messageHandler = new TellPullHandler(clientMessage);
+					break;
 //				case REMOVE:
 //					messageHandler = new RemoveHandler(clientMessage);
 //					break;

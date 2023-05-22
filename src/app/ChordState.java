@@ -5,6 +5,8 @@ import servent.base_message.Message;
 import servent.base_message.WelcomeMessage;
 import servent.base_message.util.MessageUtil;
 import servent.storage_message.AddInformMessage;
+import servent.storage_message.AskPullMessage;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
@@ -40,6 +42,9 @@ public class ChordState {
     private List<ServentInfo> allNodeInfo;
 //    private Map<Integer, FileInfo> storageMap;
     private Map<String, FileInfo> storageMap;
+    public List<FileInfo> pulledFiles;
+    public int amountToPull;
+    public int amountPulled;
 
     public ChordState() {
         this.chordLevel = 1;
@@ -59,6 +64,17 @@ public class ChordState {
         predecessorInfo = null;
         allNodeInfo = new ArrayList<>();
         storageMap = new ConcurrentHashMap<>();
+        pulledFiles = new ArrayList<>();
+        amountToPull = 0;
+        amountPulled = 0;
+    }
+
+    public void addPulledFile(FileInfo fi){
+        pulledFiles.add(fi);
+        amountPulled++;
+        if (amountPulled == amountToPull){
+            printPulledFiles();
+        }
     }
 
 
@@ -258,17 +274,92 @@ public class ChordState {
             AppConfig.timestampedStandardPrint("Sending inform message " + addInfoMsg);
             MessageUtil.sendMessage(addInfoMsg);
 
-            System.out.println("# Nakon dodavanja u storage");
-            for (Map.Entry<String, FileInfo> map: storageMap.entrySet()) {
-                System.out.println("storage = " + map.getKey() + " -- " + map.getValue() + " -- " + map.getValue().getOgNode());
-            }
+//            System.out.println("# Nakon dodavanja u storage");
+//            for (Map.Entry<String, FileInfo> map: storageMap.entrySet()) {
+//                System.out.println("storage = " + map.getKey() + " -- " + map.getValue() + " -- " + map.getValue().getOgNode());
+//            }
         }
         else {
             AppConfig.timestampedStandardPrint("We already have " + fileInfo.getPath());
         }
     }
 
-    //todo storage pull file
+    public void pullFile (String path){
+        //1.1 pokupimo iz mape path i id od noda koji ga drzi
+        //1.2 posaljemo svima pull msg da bi nasli onoga koji nam treba
+        //2 cekamo tell msg od njega
+        //3. printamo sta smo dobili nazad
+
+
+        //1.1
+        List<FileInfo> filesToPull = pullFromStorage(path);
+
+        if (filesToPull == null) {
+            AppConfig.timestampedErrorPrint("Bad pull path - " + path);
+            return;
+        }
+
+        if (filesToPull.isEmpty()) {
+            AppConfig.timestampedErrorPrint("No files found to pull - " + path);
+            return;
+        }
+
+        //1.2
+        pulledFiles.clear();
+        amountPulled = 0;
+
+        for (FileInfo fileToPull : filesToPull) {
+            Message askMessage = new AskPullMessage( AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
+                    getNextNodeIp(), getNextNodePort(), AppConfig.myServentInfo.getChordId(), fileToPull);
+            MessageUtil.sendMessage(askMessage);
+            AppConfig.timestampedErrorPrint("sent ask msg " + askMessage);
+        }
+        amountToPull = filesToPull.size();
+    }
+
+    public void printPulledFiles(){
+        AppConfig.timestampedStandardPrint("Printing pulled files");
+        for (FileInfo pulledFile: pulledFiles){
+            System.out.println("-----" + pulledFile.getPath() + "-----");
+            System.out.println(pulledFile.getContent());
+        }
+    }
+
+    public List<FileInfo> pullFromStorage (String path){
+
+        if (storageMap.containsKey(path)){
+            List<FileInfo> filesToReturn = new ArrayList<>();
+
+            FileInfo requestedFileInfo = storageMap.get(path); //mozda je file mozda je dir
+
+            if (!requestedFileInfo.isDirectory()) {//ako je file, nasli smo ga i samo ga vrati
+                filesToReturn.add(requestedFileInfo);
+                return filesToReturn;
+            }
+
+            //ako je dir onda iskopaj sve filove koji su nam unutar dira
+            List<String> allDirSubFilePaths = getAllFilesFromDir(requestedFileInfo);
+
+            for (String pathKey: allDirSubFilePaths){
+                if (storageMap.containsKey(pathKey))
+                    filesToReturn.add(storageMap.get(pathKey));
+            }
+
+
+            return filesToReturn;
+        }
+        else return null;
+
+    }
+
+    private List<String> getAllFilesFromDir(FileInfo dirInfo){
+        List<String> filePaths = new ArrayList<>();
+        for (String path: dirInfo.getSubFiles()) {
+            if (path.contains(".")) filePaths.add(path);//ako ima tacku znaci da je neki file
+            else filePaths.addAll(getAllFilesFromDir(storageMap.get(path))); //ako nema znaci da je dir i daj mi njegove subdirove
+        }
+        return filePaths;
+    }
 
     //todo storage remove file
 
@@ -300,6 +391,14 @@ public class ChordState {
         this.predecessorInfo = newNodeInfo;
     }
 
+    public List<FileInfo> getPulledFiles() {
+        return pulledFiles;
+    }
+
+    public void setPulledFiles(List<FileInfo> pulledFiles) {
+        this.pulledFiles = pulledFiles;
+    }
+
     public boolean isCollision(int chordId) {
         if (chordId == AppConfig.myServentInfo.getChordId()) {
             return true;
@@ -310,30 +409,6 @@ public class ChordState {
             }
         }
         return false;
-    }
-
-
-    public void adddtoStorage(FileInfo fileInfo, String requesterIp, int requesterPort) {
-        if (!storageMap.containsKey(fileInfo.getPath())) { //Proverimo da li vec imamo fajl, ako nemamo ododaj podatke
-            storageMap.put(fileInfo.getPath(), new FileInfo(fileInfo));
-            AppConfig.timestampedStandardPrint("File " + fileInfo.getPath() + " stored successfully.");
-
-            String nextNodeIp = AppConfig.chordState.getNextNodeIp();
-            int nextNodePort = AppConfig.chordState.getNextNodePort();
-
-            Message addInfoMsg = new AddInformMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
-                    nextNodeIp, nextNodePort, requesterIp, requesterPort, fileInfo);
-            AppConfig.timestampedStandardPrint("Sending inform message " + addInfoMsg);
-            MessageUtil.sendMessage(addInfoMsg);
-
-            System.out.println("# Nakon dodavanja u storage");
-            for (Map.Entry<String, FileInfo> map: storageMap.entrySet()) {
-                System.out.println("storage = " + map.getKey() + " -- " + map.getValue() + " -- " + map.getValue().getOgNode());
-            }
-        }
-        else {
-            AppConfig.timestampedStandardPrint("We already have " + fileInfo.getPath());
-        }
     }
 
 }
