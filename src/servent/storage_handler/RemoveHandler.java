@@ -16,11 +16,8 @@ public class RemoveHandler implements MessageHandler {
     @Override
     public void run() {
 
-        System.err.println("USLI SMO U REMOVE HANDLER");
-
         if (clientMessage.getMessageType() == MessageType.REMOVE) {
             AppConfig.chordState.removeFileFromStorage(clientMessage.getMessageText());
-            System.err.println("SKLONILI SMO");
         }
         else {
             AppConfig.timestampedErrorPrint("Remove handler got message that's not of type REMOVE.");

@@ -1,4 +1,1 @@
-Removed file fileTest1.txt
-USLI SMO U REMOVE LISTENER
-USLI SMO U REMOVE HANDLER
 00:00:11 - File already removed - fileTest1.txt

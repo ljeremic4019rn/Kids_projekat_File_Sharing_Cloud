@@ -82,7 +82,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
                     messageHandler = new TellPullHandler(clientMessage);
 					break;
 				case REMOVE:
-                    System.err.println("USLI SMO U REMOVE LISTENER");
 					messageHandler = new RemoveHandler(clientMessage);
 					break;
                     case ADD_INFORM:

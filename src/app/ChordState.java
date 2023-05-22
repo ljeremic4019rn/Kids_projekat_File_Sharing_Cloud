@@ -369,8 +369,6 @@ public class ChordState {
         if (fileToRemove.isFile()){
             storageMap.remove(path);
             AppConfig.timestampedStandardPrint("Removing file" + path + " from virtual memory");
-            System.err.println("Removed file " + path);
-
             Message removeMessage = new RemoveMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
                     getNextNodeIp(), getNextNodePort(), path);
             MessageUtil.sendMessage(removeMessage);
@@ -378,8 +376,6 @@ public class ChordState {
         else {
             for (String dirFileToRemove: getAllFilesFromDir(fileToRemove)) {
                 storageMap.remove(dirFileToRemove);
-                System.err.println("Removed dir file " + dirFileToRemove);
-
                 Message removeMessage = new RemoveMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
                         getNextNodeIp(), getNextNodePort(), path);
                 MessageUtil.sendMessage(removeMessage);
