@@ -1,6 +1,5 @@
 package app;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -43,15 +42,12 @@ public class AppConfig {
 	}
 	
 	public static int BOOTSTRAP_PORT;
+	public static String BOOTSTRAP_ADDRESS;
+
 	public static int SERVENT_COUNT;
 	public static ChordState chordState;
 
-	public static boolean CAN_QUIT = false;
-
-	public static String BOOTSTRAP_ADDRESS;
-
-	public static String WORKING_DIR;
-	public static String STORAGE_DIR;
+	public static String ROOT_DIR;
 
 	public static int WEAK_TIMEOUT;
 	public static int STRONG_TIMEOUT;
@@ -88,17 +84,12 @@ public class AppConfig {
 			System.exit(0);
 		}
 
-		WORKING_DIR = properties.getProperty("work_dir" + serventId);
-		if (WORKING_DIR == null) {
+		ROOT_DIR = properties.getProperty("work_dir" + serventId);
+		if (ROOT_DIR == null) {
 			System.err.println("Problem reading work_directory property. Exiting...");
 			System.exit(0);
 		}
 
-		STORAGE_DIR = properties.getProperty("storage" + serventId);
-		if (STORAGE_DIR == null) {
-			System.err.println("Problem reading storage property. Exiting...");
-			System.exit(0);
-		}
 		try {
 			WEAK_TIMEOUT = Integer.parseInt(properties.getProperty("weak_timeout"));
 		} catch (NumberFormatException e) {

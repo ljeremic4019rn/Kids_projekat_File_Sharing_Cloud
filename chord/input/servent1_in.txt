@@ -1,4 +1,5 @@
 pause 40000
-add /test1.txt
-pause 7000
+pause 10000
+pause 10000
+pause 10000
 stop

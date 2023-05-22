@@ -1,14 +1,91 @@
-18:43:36 - Starting servent [cId: 53|ipA: localhost|lP: 1300]
-18:43:36 - Pausing for 20000 ms
-18:43:37 - Sending message [cHashSp:53|sPort:localhost:1300|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1000|cHashRp:5]
-18:43:43 - Got message [cHashSp:55|sPort:localhost:1200|mId:5|mTxt:|mTyp:WELCOME|rPort:localhost:1300|cHashRp:53]
-18:43:45 - Sending message [cHashSp:53|sPort:localhost:1300|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1200|cHashRp:55]
-18:43:47 - Got message [cHashSp:53|sPort:localhost:1300|mId:14|mTxt:localhost:1200,localhost:1000,localhost:1100|mTyp:UPDATE|rPort:localhost:1300|cHashRp:53]
-18:43:48 - Sending message [cHashSp:53|sPort:localhost:1300|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1200|cHashRp:55]
-18:43:53 - Got message [cHashSp:60|sPort:localhost:1400|mId:15|mTxt:localhost:1000,localhost:1100|mTyp:UPDATE|rPort:localhost:1300|cHashRp:53]
-18:43:55 - Sending message [cHashSp:60|sPort:localhost:1400|mId:3|mTxt:localhost:1000,localhost:1100,localhost:1300|mTyp:UPDATE|rPort:localhost:1200|cHashRp:55]
-18:43:56 - Pausing for 15000 ms
-18:44:00 - Got message [cHashSp:39|sPort:localhost:1100|mId:16|mTxt:|mTyp:TOKEN|rPort:localhost:1300|cHashRp:53]
-18:44:00 - SENDING TOKEN FROM1300 TO 1200
-18:44:01 - Sending message [cHashSp:53|sPort:localhost:1300|mId:4|mTxt:|mTyp:TOKEN|rPort:localhost:1200|cHashRp:55]
-18:44:11 - Stopping...
+14:56:51 - Starting servent [cId: 46|ipA: localhost|lP: 1305]
+14:56:51 - Pausing for 20000 ms
+# MY CONNECTING PARTNERS PORT IS 1205
+14:56:52 - Sending message [cHashSp:46|sPort:localhost:1305|mId:0|mTxt:|mTyp:NEW_NODE|rPort:localhost:1205|cHashRp:0]
+14:56:53 - Got message [cHashSp:0|sPort:localhost:1205|mId:4|mTxt:|mTyp:WELCOME|rPort:localhost:1305|cHashRp:46]
+# MY PREDECESSOR IS null
+# MY SUCCESSORS ARE [[cId: 0|ipA: localhost|lP: 1205], null, null, null, null, null]
+14:56:54 - Sending message [cHashSp:46|sPort:localhost:1305|mId:1|mTxt:|mTyp:UPDATE|rPort:localhost:1205|cHashRp:0]
+14:56:58 - Got message [cHashSp:46|sPort:localhost:1305|mId:11|mTxt:localhost:1205,localhost:1005,localhost:1105|mTyp:UPDATE|rPort:localhost:1305|cHashRp:46]
+# WE ARE ADDING NEW NODES
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 4|ipA: localhost|lP: 1005]
+[cId: 44|ipA: localhost|lP: 1105]
+# NEW LIST 1
+# NEW LIST 2
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 4|ipA: localhost|lP: 1005]
+[cId: 44|ipA: localhost|lP: 1105]
+# NEW ALL NODES LIST
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 4|ipA: localhost|lP: 1005]
+[cId: 44|ipA: localhost|lP: 1105]
+# SUCC TABLE BEFORE UPDATE
+[cId: 0|ipA: localhost|lP: 1205]
+null
+null
+null
+null
+null
+# SUCC TABLE AFTER UPDATE
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 44|ipA: localhost|lP: 1105]
+14:56:59 - Sending message [cHashSp:46|sPort:localhost:1305|mId:2|mTxt:|mTyp:JOINED|rPort:localhost:1205|cHashRp:0]
+14:57:02 - Got message [cHashSp:44|sPort:localhost:1105|mId:12|mTxt:|mTyp:TOKEN|rPort:localhost:1305|cHashRp:46]
+14:57:03 - Sending message [cHashSp:46|sPort:localhost:1305|mId:3|mTxt:|mTyp:TOKEN|rPort:localhost:1205|cHashRp:0]
+14:57:09 - Got message [cHashSp:1|sPort:localhost:1405|mId:13|mTxt:localhost:1005,localhost:1105|mTyp:UPDATE|rPort:localhost:1305|cHashRp:46]
+# WE ARE ADDING NEW NODES
+[cId: 1|ipA: localhost|lP: 1405]
+# NEW LIST 1
+# NEW LIST 2
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 1|ipA: localhost|lP: 1405]
+[cId: 4|ipA: localhost|lP: 1005]
+[cId: 44|ipA: localhost|lP: 1105]
+# NEW ALL NODES LIST
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 1|ipA: localhost|lP: 1405]
+[cId: 4|ipA: localhost|lP: 1005]
+[cId: 44|ipA: localhost|lP: 1105]
+# SUCC TABLE BEFORE UPDATE
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 44|ipA: localhost|lP: 1105]
+# SUCC TABLE AFTER UPDATE
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 0|ipA: localhost|lP: 1205]
+[cId: 44|ipA: localhost|lP: 1105]
+14:57:09 - Sending message [cHashSp:1|sPort:localhost:1405|mId:4|mTxt:localhost:1005,localhost:1105,localhost:1305|mTyp:UPDATE|rPort:localhost:1205|cHashRp:0]
+14:57:11 - Pausing for 15000 ms
+14:57:13 - Got message [cHashSp:44|sPort:localhost:1105|mId:14|mTxt:|mTyp:TOKEN|rPort:localhost:1305|cHashRp:46]
+14:57:14 - Sending message [cHashSp:46|sPort:localhost:1305|mId:5|mTxt:|mTyp:TOKEN|rPort:localhost:1205|cHashRp:0]
+14:57:18 - Got message [cHashSp:44|sPort:localhost:1105|mId:15|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1305|cHashRp:46]
+# UHVATILI SMO ADD INFORM
+14:57:18 - File test.txt stored successfully.
+# Sending message [cHashSp:46|sPort:localhost:1305|mId:6|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1205|cHashRp:0]
+# Nakon dodavanja u storage
+storage = test.txt -- [test.txt] -- 4
+14:57:18 - Got message [cHashSp:44|sPort:localhost:1105|mId:16|mTxt:|mTyp:TOKEN|rPort:localhost:1305|cHashRp:46]
+14:57:19 - Sending message [cHashSp:46|sPort:localhost:1305|mId:6|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1205|cHashRp:0]
+14:57:19 - Sending message [cHashSp:46|sPort:localhost:1305|mId:7|mTxt:|mTyp:TOKEN|rPort:localhost:1205|cHashRp:0]
+14:57:23 - Got message [cHashSp:44|sPort:localhost:1105|mId:17|mTxt:|mTyp:TOKEN|rPort:localhost:1305|cHashRp:46]
+14:57:23 - Got message [cHashSp:44|sPort:localhost:1105|mId:18|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1305|cHashRp:46]
+# UHVATILI SMO ADD INFORM
+14:57:23 - File test1.txt stored successfully.
+# Sending message [cHashSp:46|sPort:localhost:1305|mId:9|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1205|cHashRp:0]
+# Nakon dodavanja u storage
+storage = test.txt -- [test.txt] -- 4
+storage = test1.txt -- [test1.txt] -- 0
+14:57:24 - Sending message [cHashSp:46|sPort:localhost:1305|mId:8|mTxt:|mTyp:TOKEN|rPort:localhost:1205|cHashRp:0]
+14:57:24 - Sending message [cHashSp:46|sPort:localhost:1305|mId:9|mTxt:|mTyp:ADD_INFORM|rPort:localhost:1205|cHashRp:0]
+14:57:26 - Stopping...

@@ -1,82 +1,80 @@
 package servent;
 
+import app.AppConfig;
+import app.Cancellable;
+import servent.base_handler.*;
+import servent.base_message.Message;
+import servent.base_message.util.MessageUtil;
+import servent.storage_handler.InformAboutAddHandler;
+import servent.storage_handler.TokenHandler;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import app.AppConfig;
-import app.Cancellable;
-import servent.base_handler.*;
-import servent.base_message.Message;
-import servent.base_message.util.MessageUtil;
-import servent.storage_handler.TokenHandler;
 
 public class SimpleServentListener implements Runnable, Cancellable {
 
-	private volatile boolean working = true;
-	
-	public SimpleServentListener() {
-		
-	}
+    private volatile boolean working = true;
 
-	/*
-	 * Thread pool for executing the handlers. Each client will get it's own handler thread.
-	 */
-	private final ExecutorService threadPool = Executors.newWorkStealingPool();
-	
-	@Override
-	public void run() {
-		ServerSocket listenerSocket = null;
-		try {
-			listenerSocket = new ServerSocket(AppConfig.myServentInfo.getListenerPort(), 100);
-			/*
-			 * If there is no connection after 1s, wake up and see if we should terminate.
-			 */
-			listenerSocket.setSoTimeout(1000);
-		} catch (IOException e) {
-			AppConfig.timestampedErrorPrint("Couldn't open listener socket on: " + AppConfig.myServentInfo.getListenerPort());
-			System.exit(0);
-		}
-		
-		
-		while (working) {
-			try {
-				Message clientMessage;
-				
-				Socket clientSocket = listenerSocket.accept();
-				
-				//GOT A MESSAGE! <3
-				clientMessage = MessageUtil.readMessage(clientSocket);
-				
-				MessageHandler messageHandler = new NullHandler(clientMessage);
+    public SimpleServentListener() {
+
+    }
+
+    /*
+     * Thread pool for executing the handlers. Each client will get it's own handler thread.
+     */
+    private final ExecutorService threadPool = Executors.newWorkStealingPool();
+
+    @Override
+    public void run() {
+        ServerSocket listenerSocket = null;
+        try {
+            listenerSocket = new ServerSocket(AppConfig.myServentInfo.getListenerPort(), 100);
+            /*
+             * If there is no connection after 1s, wake up and see if we should terminate.
+             */
+            listenerSocket.setSoTimeout(1000);
+        } catch (IOException e) {
+            AppConfig.timestampedErrorPrint("Couldn't open listener socket on: " + AppConfig.myServentInfo.getListenerPort());
+            System.exit(0);
+        }
 
 
-				switch (clientMessage.getMessageType()) {
-				case NEW_NODE:
-					messageHandler = new NewNodeHandler(clientMessage);
-					break;
-				case WELCOME:
-					messageHandler = new WelcomeHandler(clientMessage);
-					break;
-				case SORRY:
-					messageHandler = new SorryHandler(clientMessage);
-					break;
-				case UPDATE:
-					messageHandler = new UpdateHandler(clientMessage);
-					break;
-				case TOKEN:
-					messageHandler = new TokenHandler(clientMessage);
-					break;
-				case JOINED:
-					messageHandler = new JoinedHandler(clientMessage);
-					break;
+        while (working) {
+            try {
+                Message clientMessage;
 
-					//todo
-//				case ADD:
-//					messageHandler = new AddHandler(clientMessage);
-//					break;
+                Socket clientSocket = listenerSocket.accept();
+
+                //GOT A MESSAGE! <3
+                clientMessage = MessageUtil.readMessage(clientSocket);
+
+                MessageHandler messageHandler = new NullHandler(clientMessage);
+
+
+                switch (clientMessage.getMessageType()) {
+                    case NEW_NODE:
+                        messageHandler = new NewNodeHandler(clientMessage);
+                        break;
+                    case WELCOME:
+                        messageHandler = new WelcomeHandler(clientMessage);
+                        break;
+                    case SORRY:
+                        messageHandler = new SorryHandler(clientMessage);
+                        break;
+                    case UPDATE:
+                        messageHandler = new UpdateHandler(clientMessage);
+                        break;
+                    case TOKEN:
+                        messageHandler = new TokenHandler(clientMessage);
+                        break;
+                    case JOINED:
+                        messageHandler = new JoinedHandler(clientMessage);
+                        break;
+
 //				case ASK_PULL:
 //					messageHandler = new AskPullHandler(clientMessage);
 //					break;
@@ -86,27 +84,27 @@ public class SimpleServentListener implements Runnable, Cancellable {
 //				case REMOVE:
 //					messageHandler = new RemoveHandler(clientMessage);
 //					break;
-//				case ADD_SUCCESS:
-//					messageHandler = new AddSuccessHandler(clientMessage);
-//					break;
+                    case ADD_INFORM:
+                        messageHandler = new InformAboutAddHandler(clientMessage);
+                        break;
 
-				case POISON:
-					break;
-				}
-				
-				threadPool.submit(messageHandler);
-			} catch (SocketTimeoutException timeoutEx) {
-				//Uncomment the next line to see that we are waking up every second.
+                    case POISON:
+                        break;
+                }
+
+                threadPool.submit(messageHandler);
+            } catch (SocketTimeoutException timeoutEx) {
+                //Uncomment the next line to see that we are waking up every second.
 //				AppConfig.timedStandardPrint("Waiting...");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	@Override
-	public void stop() {
-		this.working = false;
-	}
+    @Override
+    public void stop() {
+        this.working = false;
+    }
 
 }

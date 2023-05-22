@@ -16,8 +16,9 @@ public class FileInfo implements Serializable {
     private final String content;
     private final boolean isDirectory;
     private final List<String> subFiles;
+    private int OgNode = -1;
 
-    public FileInfo(String path, boolean isDirectory, String content, List<String> subFiles) {
+    public FileInfo(String path, boolean isDirectory, String content, List<String> subFiles, int ogNode) {
         this.path = path;
         this.isDirectory = isDirectory;
         this.content = content;
@@ -25,18 +26,19 @@ public class FileInfo implements Serializable {
         if (subFiles != null) {
             this.subFiles.addAll(subFiles);
         }
+        this.OgNode = ogNode;
     }
 
-    public FileInfo(String path, String content) {
-        this(path, false, content,  null);
+    public FileInfo(String path, String content, int ogNode) {
+        this(path, false, content,  null, ogNode);
     }
 
-    public FileInfo(String path, List<String> subFiles) {
-        this (path, true, "", subFiles);
+    public FileInfo(String path, List<String> subFiles, int ogNode) {
+        this (path, true, "", subFiles, ogNode);
     }
 
     public FileInfo(FileInfo fileInfo) {
-        this(fileInfo.getPath(), fileInfo.isDirectory(), fileInfo.getContent(),  fileInfo.getSubFiles());
+        this(fileInfo.getPath(), fileInfo.isDirectory(), fileInfo.getContent(),  fileInfo.getSubFiles(), fileInfo.getOgNode());
     }
 
     public String getPath() {
@@ -45,6 +47,10 @@ public class FileInfo implements Serializable {
 
     public boolean isDirectory() {
         return isDirectory;
+    }
+
+    public int getOgNode() {
+        return OgNode;
     }
 
     public boolean isFile() {
@@ -71,6 +77,8 @@ public class FileInfo implements Serializable {
         return false;
 
     }
+
+
 
     @Override
     public String toString() {

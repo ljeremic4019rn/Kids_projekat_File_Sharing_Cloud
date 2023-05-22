@@ -45,7 +45,6 @@ public class ServentInitializer implements Runnable {
 
 	@Override
 	public void run() {
-
 		String someServent = getSomeServent();
 
 		//We are the first node in the system
@@ -57,7 +56,9 @@ public class ServentInitializer implements Runnable {
 		else {
 			String someServentIp = someServent.substring(0, someServent.indexOf(':'));
 			int someServentPort = Integer.parseInt(someServent.substring(someServentIp.length() + 1));
-			NewNodeMessage newNodeMessage = new NewNodeMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(), someServentIp, someServentPort);
+			System.out.println("# MY CONNECTING PARTNERS PORT IS " + someServentPort);
+			NewNodeMessage newNodeMessage = new NewNodeMessage(AppConfig.myServentInfo.getIpAddress(),
+					AppConfig.myServentInfo.getListenerPort(), someServentIp, someServentPort);
 			MessageUtil.sendMessage(newNodeMessage);
 		}
 	}

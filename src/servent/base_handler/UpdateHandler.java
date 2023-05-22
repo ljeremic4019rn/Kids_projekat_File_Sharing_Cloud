@@ -26,11 +26,11 @@ public class UpdateHandler implements MessageHandler {
 			int senderServentId = ChordState.chordHash(clientMessage.getSenderIpAddress() + ":" + clientMessage.getSenderPort());
 			int receiverServentId = ChordState.chordHash(AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort());
 
+
 			if (senderServentId != receiverServentId) {
 				ServentInfo newNodeInfo = new ServentInfo(clientMessage.getSenderIpAddress(), clientMessage.getSenderPort());
 				List<ServentInfo> newNodes = new ArrayList<>();
 				newNodes.add(newNodeInfo);
-
 				AppConfig.chordState.addNodes(newNodes);
 				String newMessageText = "";
 				if (clientMessage.getMessageText().equals("")) {
@@ -40,7 +40,7 @@ public class UpdateHandler implements MessageHandler {
 					newMessageText = clientMessage.getMessageText() + "," + AppConfig.myServentInfo.getIpAddress() + ":" + AppConfig.myServentInfo.getListenerPort();
 				}
 				Message nextUpdate = new UpdateMessage(clientMessage.getSenderIpAddress(), clientMessage.getSenderPort(),
-						AppConfig.chordState.getNextNodeIp(), AppConfig.chordState.getNextNodePort(),newMessageText);
+						AppConfig.chordState.getNextNodeIp(), AppConfig.chordState.getNextNodePort(), newMessageText);
 				MessageUtil.sendMessage(nextUpdate);
 			}
 			else {

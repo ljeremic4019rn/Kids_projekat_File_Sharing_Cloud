@@ -68,7 +68,8 @@ public class BootstrapServer {
 							System.out.println("adding " + newIpPort);
 							socketWriter.write("-1\n");
 							activeServents.add(newIpPort); //first one doesn't need to confirm
-						} else {
+						}
+						else {
 							String randServent = activeServents.get(rand.nextInt(activeServents.size()));
 							socketWriter.write(randServent + "\n");
 						}

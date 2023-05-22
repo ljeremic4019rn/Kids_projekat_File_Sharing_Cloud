@@ -11,28 +11,20 @@ import java.util.Queue;
 public class FileUtils {
 
 
-    //todo proveri dal je dobro
-    public static boolean isPathDirectory(String rootDirectory, String path) {
-        File f = new File(rootDirectory + "\\" + path);
-        return f.isDirectory();
-    }
-
-    //todo proveri dal je dobro
     public static boolean isPathFile(String rootDirectory, String path) {
         File f = new File(rootDirectory + "\\" + path);
+        System.out.println("# file exists");
         return f.isFile();
     }
 
-    //todo proveri dal je dobro
     public static FileInfo getFileInfoFromPath(String rootDirectory, String path) {
-
         path = rootDirectory + "\\" + path;
         File f = new File(path);
+
         if (!f.exists()) {
             AppConfig.timestampedErrorPrint("File " + path + " doesn't exist.");
             return null;
         }
-
         if (f.isDirectory()) {
             AppConfig.timestampedErrorPrint(path + " is a directory and not a file.");
             return null;
@@ -52,7 +44,7 @@ public class FileUtils {
             if (!fileContent.isEmpty())
                 fileContent.deleteCharAt(fileContent.length() - 1);
 
-            return new FileInfo(filePath, fileContent.toString());
+            return new FileInfo(filePath, fileContent.toString(), AppConfig.myServentInfo.getChordId());
         } catch (IOException e) {
             AppConfig.timestampedErrorPrint("Couldn't read " + path + ".");
         }
@@ -101,7 +93,7 @@ public class FileUtils {
             }
 
             dirPath = dirPath.replace(rootDirectory + "\\", "");
-            fileInfoList.add(new FileInfo(dirPath, subFiles));
+            fileInfoList.add(new FileInfo(dirPath, subFiles, AppConfig.myServentInfo.getChordId()));
         }
         return fileInfoList;
     }
@@ -117,10 +109,10 @@ public class FileUtils {
 //            dir.mkdirs();
 //        }
 
-        String filePath = rootDirectory + "\\" + fileInfo.getPath();
-        File f = new File(filePath);
-
-        System.out.println("Found file " + f + " and adding it to the WorkingMap");
+//        String filePath = rootDirectory + "\\" + fileInfo.getPath();
+//        File f = new File(filePath);
+//
+//        System.out.println("Found file " + f + " and adding it to the WorkingMap");
 
 //        try {
 //            f.createNewFile();
@@ -139,43 +131,11 @@ public class FileUtils {
 //            return false;
 //        }
 
-        AppConfig.chordState.addToWorkingMap(fileInfo, f.lastModified());
+//        AppConfig.chordState.addToStorageMap(fileInfo, f.lastModified());
 
         return true;
     }
 
-
-    //todo proveri dal je dobro
-    public static boolean storeDirectory(String rootDirectory, List<FileInfo> fileInfoList, String topDirectory) {
-
-        Queue<String> pendingFiles = new LinkedList<>();
-        pendingFiles.add(topDirectory);
-
-        //Vrtimo se u petlji dok ne kreiramo sve fajlove i foldere koji su prosledjeni
-        while (!pendingFiles.isEmpty()) {
-            String path = pendingFiles.poll();
-            FileInfo fileInfo = fileInfoList.get(0);
-            for (FileInfo fi : fileInfoList) {
-                if (fi.getPath().equals(path)) {
-                    fileInfo = fi;
-                    break;
-                }
-            }
-
-            if (fileInfo.isFile()) {
-                if (!storeFile(rootDirectory, fileInfo)) {
-                    return false;
-                }
-            }
-            else {
-                //Vec ce biti napravljeni svi potrebni folderi ja mislim
-                //Dodajemo folder u working direktorijum, lastModified nije bitan
-                AppConfig.chordState.addToWorkingMap(fileInfo, 0);
-                pendingFiles.addAll(fileInfo.getSubFiles());
-            }
-        }
-        return true;
-    }
 
     //todo proveri dal je dobro (VRV ULSESS)
     public static void removeFile(String rootDirectory, String path) {

@@ -11,6 +11,9 @@ import cli.basic_command.InfoCommand;
 import cli.basic_command.PauseCommand;
 import cli.basic_command.StopCommand;
 import cli.basic_command.SuccessorInfo;
+import cli.storage_command.StorageAddCommand;
+import cli.storage_command.StoragePullCommand;
+import cli.storage_command.StorageRemoveCommand;
 import servent.SimpleServentListener;
 
 /**
@@ -44,6 +47,9 @@ public class CLIParser implements Runnable, Cancellable {
 		commandList.add(new PauseCommand());
 		commandList.add(new SuccessorInfo());
 		commandList.add(new StopCommand(this, listener));
+		commandList.add(new StorageAddCommand());
+		commandList.add(new StoragePullCommand());
+		commandList.add(new StorageRemoveCommand());
 	}
 	
 	@Override

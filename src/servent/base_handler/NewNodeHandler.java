@@ -43,7 +43,7 @@ public class NewNodeHandler implements MessageHandler {
 			if (isMyPred) { //if yes, prepare and send welcome message
 
 				//Pozivamo mutex lock
-				System.out.println("# WE ARE LOCKING");
+//				System.out.println("# WE ARE LOCKING");
 				TokenMutex.lock();
 
 				ServentInfo hisPred = AppConfig.chordState.getPredecessor();
@@ -53,51 +53,51 @@ public class NewNodeHandler implements MessageHandler {
 
 				AppConfig.chordState.setPredecessor(newNodeInfo);
 
-				Map<Integer, FileInfo> myStorage = AppConfig.chordState.getStorageMap();
-				Map<Integer, FileInfo> hisStorage = new HashMap<>();
+				Map<String, FileInfo> myStorage = AppConfig.chordState.getStorageMap();
 
-				int myId = AppConfig.myServentInfo.getChordId();
-				int hisPredId = hisPred.getChordId();
-				int newNodeId = newNodeInfo.getChordId();
+//				int myId = AppConfig.myServentInfo.getChordId();
+//				int hisPredId = hisPred.getChordId();
+//				int newNodeId = newNodeInfo.getChordId();
+//				for (Entry<Integer, FileInfo> fileInfoEntry : myStorage.entrySet()) {
+//					if (hisPredId == myId) { //i am first and he is second
+//						if (myId < newNodeId) {
+//							if (fileInfoEntry.getKey() <= newNodeId && fileInfoEntry.getKey() > myId) {
+//								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
+//							}
+//						}
+//						else {
+//							if (fileInfoEntry.getKey() <= newNodeId || fileInfoEntry.getKey() > myId) {
+//								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
+//							}
+//						}
+//					}
+//					if (hisPredId < myId) { //my old predecesor was before me
+//						if (fileInfoEntry.getKey() <= newNodeId) {
+//							hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
+//						}
+//					}
+//					else { //my old predecesor was after me
+//						if (hisPredId > newNodeId) { //new node overflow
+//							if (fileInfoEntry.getKey() <= newNodeId || fileInfoEntry.getKey() > hisPredId) {
+//								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
+//							}
+//						} else { //no new node overflow
+//							if (fileInfoEntry.getKey() <= newNodeId && fileInfoEntry.getKey() > hisPredId) {
+//								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
+//							}
+//						}
+//
+//					}
+//				}
+//				for (Integer key : hisStorage.keySet()) { //remove his values from my map
+//					myStorage.remove(key);
+//				}
+//				AppConfig.chordState.setStorageMap(myStorage);
 
-				for (Entry<Integer, FileInfo> fileInfoEntry : myStorage.entrySet()) {
-					if (hisPredId == myId) { //i am first and he is second
-						if (myId < newNodeId) {
-							if (fileInfoEntry.getKey() <= newNodeId && fileInfoEntry.getKey() > myId) {
-								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
-							}
-						}
-						else {
-							if (fileInfoEntry.getKey() <= newNodeId || fileInfoEntry.getKey() > myId) {
-								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
-							}
-						}
-					}
-					if (hisPredId < myId) { //my old predecesor was before me
-						if (fileInfoEntry.getKey() <= newNodeId) {
-							hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
-						}
-					}
-					else { //my old predecesor was after me
-						if (hisPredId > newNodeId) { //new node overflow
-							if (fileInfoEntry.getKey() <= newNodeId || fileInfoEntry.getKey() > hisPredId) {
-								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
-							}
-						} else { //no new node overflow
-							if (fileInfoEntry.getKey() <= newNodeId && fileInfoEntry.getKey() > hisPredId) {
-								hisStorage.put(fileInfoEntry.getKey(), fileInfoEntry.getValue());
-							}
-						}
+				Map<String, FileInfo> hisStorage = new HashMap<>(myStorage);
 
-					}
-				}
-
-				for (Integer key : hisStorage.keySet()) { //remove his values from my map
-					myStorage.remove(key);
-				}
-				AppConfig.chordState.setStorageMap(myStorage);
-
-				WelcomeMessage wm = new WelcomeMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(), newNodeIp, newNodePort, hisStorage);
+				WelcomeMessage wm = new WelcomeMessage(AppConfig.myServentInfo.getIpAddress(), AppConfig.myServentInfo.getListenerPort(),
+						newNodeIp, newNodePort, hisStorage);
 				MessageUtil.sendMessage(wm);
 			}
 			else { //if he is not my predecessor, let someone else take care of it
